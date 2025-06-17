@@ -1,0 +1,122 @@
+{
+  "tests": [
+    {
+      "name": "Project 1: Heat Diffusion - Basic Implementation",
+      "setup": "pip install -r requirements.txt",
+      "run": "python -m unittest discover -s PROJECT_1_HEAT_DIFFUSION/tests -v",
+      "timeout": 30,
+      "points": 25
+    },
+    {
+      "name": "Project 1: Heat Diffusion - Advanced Analysis",
+      "setup": "pip install -r requirements.txt",
+      "run": "cd PROJECT_1_HEAT_DIFFUSION && python -c \"import tests.test_heat_diffusion as t; t.run_all_tests_and_score()\"",
+      "timeout": 45,
+      "points": 25
+    },
+    {
+      "name": "Project 2: Earth Crust Diffusion - Basic Implementation",
+      "setup": "pip install -r requirements.txt",
+      "run": "python -m unittest discover -s PROJECT_2_EARTH_CRUST_DIFFUSION/tests -v",
+      "timeout": 30,
+      "points": 25
+    },
+    {
+      "name": "Project 2: Earth Crust Diffusion - Advanced Analysis",
+      "setup": "pip install -r requirements.txt",
+      "run": "cd PROJECT_2_EARTH_CRUST_DIFFUSION && python -c \"import tests.test_earth_crust_diffusion as t; t.run_all_tests_and_score()\"",
+      "timeout": 60,
+      "points": 25
+    },
+    {
+      "name": "Project 2: Earth Crust Diffusion - Conservation Laws",
+      "setup": "cd PROJECT_2_EARTH_CRUST_DIFFUSION",
+      "run": "python -m pytest tests/test_earth_crust_diffusion.py::TestEarthCrustDiffusion::test_student_conservation_verification_5pts -v",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 30,
+      "points": 5
+    },
+    {
+      "name": "Project 3: Quantum Tunneling - Solver Initialization",
+      "setup": "cd PROJECT_3_QUANTUM_TUNNELING",
+      "run": "python -m pytest tests/test_quantum_tunneling.py::TestQuantumTunneling::test_student_solver_initialization_15pts -v",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 30,
+      "points": 15
+    },
+    {
+      "name": "Project 3: Quantum Tunneling - Potential Setup",
+      "setup": "cd PROJECT_3_QUANTUM_TUNNELING",
+      "run": "python -m pytest tests/test_quantum_tunneling.py::TestQuantumTunneling::test_student_potential_setup_10pts -v",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 30,
+      "points": 10
+    },
+    {
+      "name": "Project 3: Quantum Tunneling - Initial Wavepacket",
+      "setup": "cd PROJECT_3_QUANTUM_TUNNELING",
+      "run": "python -m pytest tests/test_quantum_tunneling.py::TestQuantumTunneling::test_student_initial_wavepacket_10pts -v",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 30,
+      "points": 10
+    },
+    {
+      "name": "Project 3: Quantum Tunneling - Crank-Nicolson Matrices",
+      "setup": "cd PROJECT_3_QUANTUM_TUNNELING",
+      "run": "python -m pytest tests/test_quantum_tunneling.py::TestQuantumTunneling::test_student_crank_nicolson_matrices_15pts -v",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 30,
+      "points": 15
+    },
+    {
+      "name": "Project 3: Quantum Tunneling - Time Evolution",
+      "setup": "cd PROJECT_3_QUANTUM_TUNNELING",
+      "run": "python -m pytest tests/test_quantum_tunneling.py::TestQuantumTunneling::test_student_time_evolution_20pts -v",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 60,
+      "points": 20
+    },
+    {
+      "name": "Project 3: Quantum Tunneling - Probability Calculations",
+      "setup": "cd PROJECT_3_QUANTUM_TUNNELING",
+      "run": "python -m pytest tests/test_quantum_tunneling.py::TestQuantumTunneling::test_student_probability_calculations_10pts -v",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 30,
+      "points": 10
+    },
+    {
+      "name": "Project 3: Quantum Tunneling - Tunneling Analysis",
+      "setup": "cd PROJECT_3_QUANTUM_TUNNELING",
+      "run": "python -m pytest tests/test_quantum_tunneling.py::TestQuantumTunneling::test_student_tunneling_analysis_15pts -v",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 45,
+      "points": 15
+    },
+    {
+      "name": "Project 3: Quantum Tunneling - Full Simulation",
+      "setup": "cd PROJECT_3_QUANTUM_TUNNELING",
+      "run": "python -m pytest tests/test_quantum_tunneling.py::TestQuantumTunneling::test_student_full_simulation_10pts -v",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 60,
+      "points": 10
+    }
+  ]
+}
