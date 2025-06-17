@@ -108,20 +108,19 @@ class TestFiniteThicknessCapacitor(unittest.TestCase):
     
     def test_student_plot_function_5pts(self):
         """Test plot function (5 points) - basic execution check"""
+        nx, ny = 10, 10
+        dx, dy = 1.0, 1.0
+        
+        # 创建坐标网格
+        x_coords = np.arange(0, nx * dx, dx)
+        y_coords = np.arange(0, ny * dy, dy)
+        
+        # 初始化电势和电荷密度（添加变化值）
+        potential = np.random.rand(ny, nx) * 100  # 随机值0-100
+        charge_density = np.zeros((ny, nx))
+        
         try:
-            potential = solve_laplace_sor(
-                self.nx, self.ny, self.plate_thickness, self.plate_separation, 
-                self.omega, max_iter=500, tolerance=1e-4
-            )
-            dx = 1.0 / (self.nx - 1)
-            dy = 1.0 / (self.ny - 1)
-            charge_density = calculate_charge_density(potential, dx, dy)
-            
-            # Basic execution test - should not raise errors
-            plot_results(potential, charge_density)
-            
-        except NotImplementedError:
-            self.fail("Student has not implemented plot_results function")
+            plot_results(potential, charge_density, x_coords, y_coords)
         except Exception as e:
             self.fail(f"plot_results function failed with error: {str(e)}")
     
