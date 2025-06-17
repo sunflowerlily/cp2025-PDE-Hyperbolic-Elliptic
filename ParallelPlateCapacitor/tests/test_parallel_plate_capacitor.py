@@ -8,8 +8,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 #from solution.parallel_plate_capacitor_solution import (
 from parallel_plate_capacitor_student import (
     solve_laplace_jacobi,
-    solve_laplace_sor,
-    plot_results
+    solve_laplace_sor
 )
 
 class TestParallelPlateCapacitor(unittest.TestCase):
