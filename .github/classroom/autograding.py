@@ -76,8 +76,7 @@ if __name__ == "__main__":
     # Add the project root to the Python path
     sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
-    grader = AutoGrader()
-    
+    grader = AutoGrader()    
     # Example usage for this project
     # For actual grading, you would call this for each project
     # For now, we'll just run the reference solution tests to ensure the autograder works
@@ -107,6 +106,7 @@ if __name__ == "__main__":
     
     # The `run_project_tests` method expects the project name (which maps to the test file name)
     # and max points. We'll use 'wave_equation_ftcs' as the project name.
-    grader.run_project_tests('wave_equation_ftcs', 100) # Assuming 100 points for this project
+    grader.run_project_tests('wave_equation_ftcs', 50) # Assuming 50 points for this project
+    grader.run_project_tests('parallel_plate_capacitor', 50) # Assuming 50 points for this project
     
     grader.generate_report()
