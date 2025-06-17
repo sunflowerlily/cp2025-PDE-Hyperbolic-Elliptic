@@ -72,41 +72,23 @@ class AutoGrader:
         
         print(json.dumps(self.results, indent=4))
 
-if __name__ == "__main__":
-    # Add the project root to the Python path
-    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+    def run_all_tests(self):
+        """Run tests for all projects"""
+        projects = [
+            ("ParallelPlateCapacitor", 100),
+            ("WaveEquationFTCS", 100),
+            ("FiniteThicknessCapacitor", 100)
+        ]
+        
+        for project_name, max_points in projects:
+            if os.path.exists(project_name):
+                print(f"\nTesting {project_name}...")
+                self.run_project_tests(project_name, max_points)
+            else:
+                print(f"\nProject {project_name} not found, skipping...")
+        
+        self.generate_report()
 
-    grader = AutoGrader()    
-    # Example usage for this project
-    # For actual grading, you would call this for each project
-    # For now, we'll just run the reference solution tests to ensure the autograder works
-    # In a real scenario, you'd run the student's tests.
-    
-    # To test the autograder itself, we can run the reference solution tests
-    # This assumes the student's solution file is named wave_equation_ftcs_student.py
-    # and the tests are in tests/test_wave_equation_ftcs.py
-    
-    # For GitHub Classroom, the tests would typically be run against the student's code.
-    # The test file itself would import the student's solution.
-    
-    # We will simulate running the student's tests by running the existing test file.
-    # The test file already has logic to import student code (if uncommented).
-    
-    # For this setup, we assume the test file `test_wave_equation_ftcs.py`
-    # will be responsible for testing the student's `wave_equation_ftcs_student.py`.
-    # The `autograding.py` script just needs to run that test file.
-    
-    # Note: The current test file `test_wave_equation_ftcs.py` is set up to test
-    # both the reference solution and to check if student functions raise NotImplementedError.
-    # For actual grading, you'd modify `test_wave_equation_ftcs.py` to test the student's
-    # implementation for correctness, not just for NotImplementedError.
-    
-    # For demonstration, let's run the existing test file.
-    # In a real autograding scenario, you'd have specific tests for student code.
-    
-    # The `run_project_tests` method expects the project name (which maps to the test file name)
-    # and max points. We'll use 'wave_equation_ftcs' as the project name.
-    grader.run_project_tests('wave_equation_ftcs', 50) # Assuming 50 points for this project
-    grader.run_project_tests('parallel_plate_capacitor', 50) # Assuming 50 points for this project
-    
-    grader.generate_report()
+if __name__ == "__main__":
+    grader = AutoGrader()
+    grader.run_all_tests()
