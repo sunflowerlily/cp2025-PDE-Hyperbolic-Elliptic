@@ -13,7 +13,8 @@ import scipy.ndimage
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Import from student code
-from solution.finite_thickness_capacitor_solution import (
+#from solution.finite_thickness_capacitor_solution import (
+from finite_thickness_capacitor_student import (   
     solve_laplace_sor,
     calculate_charge_density,
     plot_results
