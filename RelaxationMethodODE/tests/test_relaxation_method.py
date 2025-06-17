@@ -7,9 +7,9 @@ import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Import from solution for testing reference implementation
-from solution.relaxation_method_solution import solve_ode
+#from solution.relaxation_method_solution import solve_ode
 # Import from student file for testing student implementation
-# from relaxation_method_student import solve_ode
+from relaxation_method_student import solve_ode
 
 class TestRelaxationMethod(unittest.TestCase):
     def setUp(self):
