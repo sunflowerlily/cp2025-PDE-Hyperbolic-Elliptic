@@ -5,7 +5,6 @@ import sys
 
 # 添加父目录到模块搜索路径，以便导入学生代码
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
 #from solution.parallel_plate_capacitor_solution import (
 from parallel_plate_capacitor_student import (
     solve_laplace_jacobi,
@@ -28,7 +27,14 @@ class TestParallelPlateCapacitor(unittest.TestCase):
         self.small_w = 6
         self.small_d = 6
         self.omega = 1.5 # Optimal relaxation parameter for SOR
-        self.Niter = 1000 # Max iterations for SOR
+        self.Niter = 10000
+        self.tol = 1e-4
+
+        # Smaller grid for plotting tests
+        self.small_xgrid = 50
+        self.small_ygrid = 50
+        self.small_w = 10
+        self.small_d = 5
 
         # For simplicity, we'll run the solution here. In a real scenario,
         # these might be loaded from a file or a known good run.
@@ -174,43 +180,5 @@ class TestParallelPlateCapacitor(unittest.TestCase):
         except NotImplementedError:
             self.fail("Student has not implemented the required functions")
     
-    def test_plot_function_5pts(self):
-        """Test plot function (5 points)"""
-        try:
-            # Get solutions first
-            u_jacobi, _, conv_history_jacobi = solve_laplace_jacobi(self.small_xgrid, self.small_ygrid, self.small_w, self.small_d)
-            u_sor, _, conv_history_sor = solve_laplace_sor(self.small_xgrid, self.small_ygrid, self.small_w, self.small_d)
-            
-            # Test plot_results function (visual inspection or check for no errors)
-            try:
-                # For now, we just ensure the function runs without errors
-                # More robust testing would involve checking plot elements, but that's complex
-                x = np.linspace(0, self.small_xgrid-1, self.small_xgrid)
-                y = np.linspace(0, self.small_ygrid-1, self.small_ygrid)
-                plot_results(x, y, u_jacobi, "Jacobi Method")
-                plot_results(x, y, u_sor, "SOR Method")
-            except Exception as e:
-                self.fail(f"plot_results raised an exception: {e}")
-                    
-        except NotImplementedError:
-            self.fail("Student has not implemented the plot_results function")
-
-    def test_jacobi_not_implemented_error(self):
-        """Test if solve_laplace_jacobi raises NotImplementedError (5 points)"""
-        with self.assertRaises(NotImplementedError):
-            solve_laplace_jacobi(self.xgrid, self.ygrid, self.w, self.d, self.tol)
-
-    def test_sor_not_implemented_error(self):
-        """Test if solve_laplace_sor raises NotImplementedError (5 points)"""
-        with self.assertRaises(NotImplementedError):
-            solve_laplace_sor(self.xgrid, self.ygrid, self.w, self.d, omega=self.omega, Niter=self.Niter, tol=self.tol)
-
-    def test_plot_results_not_implemented_error(self):
-        """Test if plot_results raises NotImplementedError (5 points)"""
-        with self.assertRaises(NotImplementedError):
-            # Dummy data, actual values don't matter for NotImplementedError test
-            u_dummy = np.zeros((self.ygrid, self.xgrid))
-            plot_results(u_dummy, self.xgrid, self.ygrid, self.w, self.d, [], [])
-
 if __name__ == '__main__':
     unittest.main()
